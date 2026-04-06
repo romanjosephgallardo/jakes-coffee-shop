@@ -138,6 +138,7 @@ main {
     background-color: var(--light-orange);
     overflow-y: auto;
     padding: 0 90px;
+    scroll-behavior: smooth;
 }
 
 main::-webkit-scrollbar {

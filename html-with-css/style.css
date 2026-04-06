@@ -1,5 +1,5 @@
-:root{
-    /* Font Size */
+/* Base Global Styles */
+:root {
     --fs-xs: 13px;
     --fs-sm: 14px;
     --fs-base: 16px;
@@ -10,26 +10,19 @@
     --fs-xxl: 39px;
     --fs-hero: 49px;
     
-    /* Color Styles */
     --dark-brown: #432820;
     --dark-gray-brown: #99582a;
     --gray-orange: #b28b4e;
     --light-orange: #ffe6a7;
-
-    /*  
-    --light-orange: #ffe6a7; Used for accents 
-    --bg-cream: #ffefc8;     The main background color 
-    --bg-sidebar: #c69c64;   Sidebar background 
-    --bg-header: #8f5c36;   Header background
-    --bg-footer: #8f5c36;    Footer background
-    */
+    --bg-cream: #ffefc8;
+    --bg-sidebar: #c69c64;
+    --bg-header: #8f5c36;
+    --bg-footer: #8f5c36;
     
-    /* Font Name Assigning */
     --font-main: 'Bright Chalk', cursive;
     --secondary-font: 'Nunito', sans-serif;
 }
 
-/* Fonts */
 @font-face {
     font-family: 'Bright Chalk';
     src: url(../html-with-css/assets/fonts/Bright-Chalk/Bright\ Chalk.ttf) format('truetype'),
@@ -46,7 +39,6 @@
     font-weight: normal;
 }
 
-/* Reset & Base */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -57,6 +49,14 @@ body {
     height: 100%;
     overflow: hidden;
     font-family: var(--font-main);
+    color: var(--dark-brown);
+}
+
+.section-title {
+    font-family: var(--font-main);
+    font-size: var(--fs-hero);
+    margin: 40px 0 20px 0;
+    text-align: center;
     color: var(--dark-brown);
 }
 
@@ -73,15 +73,14 @@ body {
     opacity: 0.8;     
 }
 
-
-/* === MAIN CONTAINER === */
+/* Main Layout */
 .container {
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
-/* === HEADER === */
+/* header */
 header {
     flex: 0 0 80px;
     display: flex;
@@ -166,15 +165,13 @@ header {
     opacity: 0.85;
 }
 
-
-/* Content Wrapper */
+/* Contents */
 .content-wrapper {
     display: flex;
     flex: 1 1 auto;
     overflow: hidden; 
 }
 
-/* === SIDEBAR === */
 aside {
     flex: 0 0 250px;
     background-color: var(--gray-orange);
@@ -208,30 +205,33 @@ aside nav a.active {
     font-weight: bold;
 }
 
-/* === MAIN CONTENT === */
+/* main content */
 main {
-    flex: 1 1 auto; /* Grow to fill remaining horizontal space */
-    background-color: var(--bg-cream);
-    overflow-y: auto; /* ONLY this scrolls! */
-    padding: 40px 60px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    background-color: var(--light-orange);
+    overflow-y: auto;
+    padding: 0 90px;
 }
 
-/* Custom Scrollbar */
 main::-webkit-scrollbar {
     width: 12px;
 }
+
 main::-webkit-scrollbar-track {
     background: var(--light-orange);
 }
+
 main::-webkit-scrollbar-thumb {
     background-color: var(--gray-orange);
     border-radius: 20px;
     border: 3px solid var(--light-orange);
 }
 
-/* === FOOTER === */
+/*  Footer */
 footer {
-    flex: 0 0 70px; /* Fixed height */
+    flex: 0 0 70px;
     flex-direction: column;
     display: flex;
     justify-content: center;
@@ -249,35 +249,13 @@ footer .copyright {
     margin-top: 2px;
 }
 
-footer .tagline-footer{
+footer .tagline-footer {
     font-family: var(--font-main);
     font-style: italic;
 }
 
 
-/* === SECTIONS & COMMON STYLES === */
-main {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--light-orange);
-    padding: 0 90px;
-}
-.section-title {
-    font-family: var(--font-main);
-    font-size: var(--fs-hero);
-    margin: 40px 0 20px 0;
-    text-align: center;
-    color: var(--dark-brown);
-}
-
-.divider {
-    text-align: center;
-    font-size: var(--fs-lg);
-    letter-spacing: 5px;
-    color: var(--dark-brown);
-}
-
-/* --- HERO SECTION --- */
+/*  hero section */
 .hero {
     display: flex;
     align-items: center;
@@ -326,8 +304,7 @@ main {
     margin-bottom: 5px;
 }
 
-
-/* --- BREWS SECTION --- */
+/* coffee cards */
 .brews {
     text-align: center;
 }
@@ -342,7 +319,7 @@ main {
 .brew-card {
     background-color: var(--dark-gray-brown);
     color: var(--dark-brown);
-    width: 270px;;
+    width: 270px;
     border-radius: 15px;
     padding: 10px;
     text-align: center;
@@ -363,7 +340,7 @@ main {
 .brew-image-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures image fills circle without distortion */
+    object-fit: cover;
     object-position: center;
 }
 
@@ -384,14 +361,14 @@ main {
 
 .more-flavors {
     margin: 60px 80px;
-    font-size: var(--fs-lg) ;
+    font-size: var(--fs-lg);
     font-style: italic;
 }
 
-/* --- TUNES SECTION --- */
+/* tiya's tunes */
 .tunes {
     text-align: center;
-    padding: 0 0 80px 0
+    padding: 0 0 80px 0;
 }
 
 .tunes p {
@@ -402,7 +379,7 @@ main {
 .video-container {
     position: relative;
     width: 100%;
-    max-width: 600px; /* Adjust max width as needed */
+    max-width: 600px;
     margin: 10px auto;
     border-radius: 15px;
     overflow: hidden;
@@ -416,7 +393,7 @@ main {
     display: block;
 }
 
-/* --- STORY SECTION --- */
+/* our story */
 .story-content {
     display: flex;
     align-items: center;
@@ -449,8 +426,7 @@ main {
     transform-origin: center;
 }
 
-
-/* --- CONTACT SECTION --- */
+/*  message form */
 .contact {
     text-align: center;
     margin-bottom: 50px;
@@ -510,8 +486,6 @@ main {
     font-family: var(--secondary-font);
 }
 
-
-/* Submit Button */
 .form-submit {
     display: block;
     width: 100%;

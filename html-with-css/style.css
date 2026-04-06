@@ -1,0 +1,243 @@
+:root{
+    /* Font Size */
+    --fs-xs: 13px;
+    --fs-sm: 14px;
+    --fs-base: 16px;
+    --fs-base-lg: 18px; 
+    --fs-md: 20px;
+    --fs-lg: 25px;
+    --fs-xl: 31px;
+    --fs-xxl: 39px;
+    --fs-hero: 49px;
+    
+    /* Color Styles */
+    --dark-brown: #432820;
+    --dark-gray-brown: #99582a;
+    --gray-orange: #b28b4e;
+    --light-orange: #ffe6a7;
+
+    /*  
+    --light-orange: #ffe6a7; Used for accents 
+    --bg-cream: #ffefc8;     The main background color 
+    --bg-sidebar: #c69c64;   Sidebar background 
+    --bg-header: #8f5c36;   Header background
+    --bg-footer: #8f5c36;    Footer background
+    */
+    
+    /* Font Name Assigning */
+    --font-main: 'Bright Chalk', cursive;
+    --secondary-font: 'Nunito', sans-serif;
+}
+
+/* Fonts */
+@font-face {
+    font-family: 'Bright Chalk';
+    src: url(../html-with-css/assets/fonts/Bright-Chalk/Bright\ Chalk.ttf) format('truetype'),
+        url(../html-with-css/assets/fonts/Bright-Chalk/Bright\ Chalk.woff) format('woff');
+    font-style: normal;
+    font-weight: lighter;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url(../html-with-css/assets/fonts/Nunito/Nunito-Regular.ttf) format('truetype'),
+        url(../html-with-css/assets/fonts/Nunito/Nunito-Regular.woff) format('woff');
+    font-style: normal;
+    font-weight: normal;
+}
+
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    overflow: hidden;
+    font-family: var(--font-main);
+    color: var(--dark-brown);
+}
+
+/* === MAIN CONTAINER === */
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* === HEADER === */
+header {
+    flex: 0 0 80px;
+    display: flex;
+    background-color: var(--dark-gray-brown);
+    color: var(--dark-brown);
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 50px;
+    border-bottom: 4px solid var(--dark-brown);
+    z-index: 10;
+    gap: 20px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    padding-right: 70px;
+}
+
+.logo-area img.logo {
+    height: 100px;
+    width: auto;
+}
+
+.info-area {
+    text-align: justify;
+    font-family: var(--font-main);
+    color: var(--light-orange);
+    flex: 2;
+}
+
+.info-area .hours {
+    font-size: var(--fs-xl);
+}
+
+.info-area .location {
+    font-size: var(--fs-base-lg);
+}
+
+.social-area {
+    text-align: right;
+    flex: 1;
+}
+
+.social-area > p {
+    font-size: var(--fs-lg);
+    color: var(--light-orange);
+    font-weight: 400;
+    padding-bottom: 1px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.social-link {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: transparent;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-link img {
+    width: 35px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.social-link:hover {
+    transform: translateY(-2px);
+    opacity: 0.85;
+}
+
+
+/* Content Wrapper */
+.content-wrapper {
+    display: flex;
+    flex: 1 1 auto;
+    overflow: hidden; 
+}
+
+/* === SIDEBAR === */
+aside {
+    flex: 0 0 250px;
+    background-color: var(--gray-orange);
+    padding: 40px 20px;
+    border-right: 4px solid var(--dark-brown);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+aside nav {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+aside nav a {
+    text-decoration: none;
+    color: var(--light-orange);
+    font-size: var(--fs-lg);
+    padding-left: 20px;
+    transition: 0.2s;
+    border-left: 3px solid transparent;
+}
+
+aside nav a:hover, 
+aside nav a.active {
+    border-left: 3px solid var(--dark-brown);
+    padding-left: 25px;
+    color: var(--dark-brown);
+    font-weight: bold;
+}
+
+/* === MAIN CONTENT === */
+main {
+    flex: 1 1 auto; /* Grow to fill remaining horizontal space */
+    background-color: var(--bg-cream);
+    overflow-y: auto; /* ONLY this scrolls! */
+    padding: 40px 60px;
+}
+
+/* Custom Scrollbar */
+main::-webkit-scrollbar {
+    width: 12px;
+}
+main::-webkit-scrollbar-track {
+    background: var(--light-orange);
+}
+main::-webkit-scrollbar-thumb {
+    background-color: var(--gray-orange);
+    border-radius: 20px;
+    border: 3px solid var(--light-orange);
+}
+
+/* === FOOTER === */
+footer {
+    flex: 0 0 70px; /* Fixed height */
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-gray-brown);
+    color: var(--light-orange);
+    border-top: 4px solid var(--dark-brown);
+    font-size: var(--fs-sm);
+    z-index: 10;
+}
+
+footer .copyright {
+    opacity: 0.8;
+    font-size: var(--fs-sm);
+    margin-top: 2px;
+}
+
+footer .tagline-footer{
+    font-family: var(--font-main);
+    font-style: italic;
+}
+
+
